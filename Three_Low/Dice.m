@@ -10,10 +10,10 @@
 
 @implementation Dice
 
--(NSInteger) randomValueGenerator {
+-(NSInteger) initialValueGenerator {
     
     
-    int randomValue = arc4random_uniform(7) + 1;
+    int randomValue = arc4random_uniform(5) + 1;
     
     //self.currentValue = arc4random_uniform(6);
     
@@ -22,6 +22,20 @@
     NSLog(@"%ld",(long)self.currentValue);
     
     return self.currentValue;
+    
+}
+
+-(NSInteger) randomValueGenerator {
+
+    int randomValue = arc4random_uniform(5) + 1;
+    
+    //self.currentValue = arc4random_uniform(6);
+    
+    self.randomValue = (NSInteger) randomValue;
+    
+    NSLog(@"%ld",(long)self.randomValue);
+    
+    return self.randomValue;
     
 }
 

@@ -11,8 +11,9 @@
 @interface Dice : NSObject
 
 @property NSInteger currentValue;
-@property NSNumber *randomeValue;
+@property NSInteger randomValue;
 
+-(NSInteger) initialValueGenerator;
 -(NSInteger) randomValueGenerator;
 
 
