@@ -14,12 +14,7 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         
-        char input [255];
-        fgets(input, 255, stdin);
-        
-        NSString *stringInput = [[NSString alloc] initWithUTF8String:input];
-        stringInput = [stringInput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
+        BOOL run = YES;
         
         Dice *dice1 = [[Dice alloc] init];//Dice 1
         Dice *dice2 = [[Dice alloc] init];//Dice 2
@@ -29,6 +24,13 @@ int main(int argc, const char * argv[]) {
 
         //setting the initial values for the dice.
         
+        NSArray *diceList = @[dice1, dice2, dice3, dice4, dice5];
+        
+        
+        //[NSArray alloc] initWithObjects:, @[dice1,dice2,dice3,dice4,dice5, nil];
+        NSLog(@"Count%@,%lu",diceList, (unsigned long)diceList.count);
+        
+        
         [dice1 initialValueGenerator];
         [dice2 initialValueGenerator];
         [dice3 initialValueGenerator];
@@ -37,13 +39,23 @@ int main(int argc, const char * argv[]) {
 
         //randomizing the value for the dice.
         
-        NSLog(@"Random values");
         
-        [dice1 randomValueGenerator];
-        [dice2 randomValueGenerator];
-        [dice3 randomValueGenerator];
-        [dice4 randomValueGenerator];
-        [dice5 randomValueGenerator];
+        while (run) {
+            char input [255];
+            fgets(input, 255, stdin);
+            
+            NSString *stringInput = [[NSString alloc] initWithUTF8String:input];
+            stringInput = [stringInput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            NSLog(@"Type Roll to Roll the dice");
+            
+            [dice1 randomValueGenerator];
+            [dice2 randomValueGenerator];
+            [dice3 randomValueGenerator];
+            [dice4 randomValueGenerator];
+            [dice5 randomValueGenerator];
+        }
+        
         
         
         
